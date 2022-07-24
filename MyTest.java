@@ -13,23 +13,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class MyTest {
 
     public static void main(String[] args) {
-        // declaration and instantiation of objects/variables
+   
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hp\\Downloads\\geckodriver-v0.31.0-win64\\geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
-		//comment the above 2 lines and uncomment below 2 lines to use Chrome
-        //System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");
-        //WebDriver driver = new ChromeDriver();
 
-        //String baseUrl = "http://demo.guru99.com/test/newtours/";
         String baseUrl = "https://www.saucedemo.com";
-        //String expectedTitle = "Welcome: Mercury Tours";
         String expectedTitle = "Swag Labs";
         String actualTitle = "";
 
-        // launch Fire fox and direct it to the Base URL
+        
         driver.get(baseUrl);
 
-        // get the actual value of the title
+        
         actualTitle = driver.getTitle();
         WebElement username = driver.findElement(By.id("user-name"));
         WebElement password = driver.findElement(By.id("password"));
@@ -39,15 +34,7 @@ public class MyTest {
         login.click();
         String actualUrl = "https://www.saucedemo.com/inventory.html";
         String expectedUrl = driver.getCurrentUrl();
-//        DesiredCapabilities cap=new DesiredCapabilities();
-//        cap.setCapability("firefox_binary","C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\firefox.exe");
-//        FirefoxOptions options = new FirefoxOptions(cap);
-//        driver = new FirefoxDriver(options);
-//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        /*
-         * compare the actual title of the page with the expected one and print
-         * the result as "Passed" or "Failed"
-         */
+
         if (actualTitle.contentEquals(expectedTitle)) {
             System.out.println("Test Passed!");
         } else {
